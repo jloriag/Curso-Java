@@ -37,11 +37,8 @@ public class ConsultaClientes {
      * Web service operation
      */
     @WebMethod(operationName = "suma")
-    public int[] suma(@WebParam(name = "numero1") int numero1, @WebParam(name = "numero2") int numero2) {
+    public int suma(@WebParam(name = "numero1") int numero1, @WebParam(name = "numero2") int numero2) {
         //TODO write your implementation code here:
-       int[] a=new int[2];
-       a[0]=numero1;
-        a[1]=numero2;
-        return a;
+        return numero1+numero2;
     }
 }
