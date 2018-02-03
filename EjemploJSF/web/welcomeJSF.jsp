@@ -17,33 +17,41 @@
         </head>
         <body>
             <h1><h:outputText value="Hello Word"/></h1>
+            <h:form>
             <table border="1">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
                 <tbody>
                     <tr>
                         <td> <h:outputText value="Nombre" />  </td>
-                        <td> <h:inputText id="txtNombre" value="#{elEjemploBean.elEstudiante.nombre}"/> </td>
+                        <td> 
+                            <h:inputText id="txtNombre" value="#{elEjemploBean.elEstudiante.nombre}"/> 
+                            <h:message for="txtNombre" style="color:red" />
+                        </td>
                     </tr>
                     <tr>
                         <td><h:outputText value="Cedula" /> </td>
-                        <td><h:inputText id="txtCedula" value="#{elEjemploBean.elEstudiante.carrera}" /></td>
+                        <td>
+                            <h:inputText id="txtCedula" value="#{elEjemploBean.elEstudiante.cedula}" />
+                            <h:message for="txtCedula" style="color:red" />
+                        </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td> <h:outputText value="Carrera" />  </td>
+                        <td> 
+                            <h:inputText id="txtCarrera" value="#{elEjemploBean.elEstudiante.carrera}"/> 
+                            <h:message for="txtCarrera" style="color:red" />
+                        </td>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td></td>
+                        <td> <h:outputText value="Carnet" />  </td>
+                        <td> 
+                            <h:inputText id="txtCarnet" value="#{elEjemploBean.elEstudiante.carnet}"/> 
+                            <h:message for="txtCarnet" style="color:red" />
+                        </td>
                     </tr>
                 </tbody>
             </table>
-
+            <h:commandButton id="btnAgregar" value="Agregar" action="#{elEjemploBean.agregar()}"/>
+            </h:form>
         </body>
     </html>
 </f:view>

@@ -26,5 +26,9 @@ public class EjemploBean {
         this.elEstudiante = elEstudiante;
     }
     
+    public String agregar() {
+        return "";
+    }
+    
     
 }
