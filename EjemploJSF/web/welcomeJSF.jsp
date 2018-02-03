@@ -16,33 +16,34 @@
             <title>JSP Page</title>
         </head>
         <body>
+            <f:loadBundle basename="cr.ac.una.icai.ejemplojsf.etiquetas.etiquetas"  var="eti"/>
             <h1><h:outputText value="Hello Word"/></h1>
-            <h:form>
+            <h:form id="form1">
             <table border="1">
                 <tbody>
                     <tr>
-                        <td> <h:outputText value="Nombre" />  </td>
+                        <td> <h:outputText value="#{eti['encabezado.nombre']}" />  </td>
                         <td> 
                             <h:inputText id="txtNombre" value="#{elEjemploBean.elEstudiante.nombre}"/> 
                             <h:message for="txtNombre" style="color:red" />
                         </td>
                     </tr>
                     <tr>
-                        <td><h:outputText value="Cedula" /> </td>
+                        <td><h:outputText value="#{eti['encabezado.cedula']}" /> </td>
                         <td>
-                            <h:inputText id="txtCedula" value="#{elEjemploBean.elEstudiante.cedula}" />
+                            <h:inputText  id="txtCedula" value="#{elEjemploBean.elEstudiante.cedula}" />
                             <h:message for="txtCedula" style="color:red" />
                         </td>
                     </tr>
                     <tr>
-                        <td> <h:outputText value="Carrera" />  </td>
+                        <td> <h:outputText value="#{eti['encabezado.carrera']}" />  </td>
                         <td> 
                             <h:inputText id="txtCarrera" value="#{elEjemploBean.elEstudiante.carrera}"/> 
                             <h:message for="txtCarrera" style="color:red" />
                         </td>
                     </tr>
                     <tr>
-                        <td> <h:outputText value="Carnet" />  </td>
+                        <td> <h:outputText value="#{eti['encabezado.carnet']}" />  </td>
                         <td> 
                             <h:inputText id="txtCarnet" value="#{elEjemploBean.elEstudiante.carnet}"/> 
                             <h:message for="txtCarnet" style="color:red" />
@@ -50,7 +51,8 @@
                     </tr>
                 </tbody>
             </table>
-            <h:commandButton id="btnAgregar" value="Agregar" action="#{elEjemploBean.agregar()}"/>
+            <h:commandButton id="btnAgregar" value="#{eti['encabezado.agregar']}" action="#{elEjemploBean.agregar()}"/>
+            <h:messages style="color:green" />
             </h:form>
         </body>
     </html>

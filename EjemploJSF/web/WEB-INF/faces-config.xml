@@ -4,7 +4,13 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
-     <managed-bean>
+    <application>
+        <message-bundle>
+            cr.ac.una.icai.ejemplojsf.etiquetas.etiquetas
+        </message-bundle>
+    </application> 
+    
+    <managed-bean>
         <managed-bean-name>
             elEjemploBean
         </managed-bean-name>
