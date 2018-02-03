@@ -5,10 +5,31 @@
  */
 package cr.ac.una.icai.videojsf.bo;
 
+import cr.ac.una.icai.videojsf.clases.Pelicula;
+import cr.ac.una.icai.videojsf.dao.PeliculaAD;
+
 /**
  *
  * @author Estudiante
  */
 public class PeliculaBo {
+    
+    private PeliculaAD peliDao;
+
+    public PeliculaBo() {
+        peliDao=new PeliculaAD();
+    }
+
+    public PeliculaAD getPeliDao() {
+        return peliDao;
+    }
+
+    public void setPeliDao(PeliculaAD peliDao) {
+        this.peliDao = peliDao;
+    }
+    
+    public Integer insertar(Pelicula peli){
+        return this.peliDao.insertar(peli);
+    }
     
 }

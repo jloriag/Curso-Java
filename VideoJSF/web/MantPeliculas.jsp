@@ -73,6 +73,8 @@
                         </tr>
                     </tbody>
                 </table>
+                            <h:commandButton id="bntAgregar" value="Agregar" action="#{peliculaBean.agregar()}"/>
+                               <h:messages style="color:green" />
             </h:form>
         </body>
     </html>
