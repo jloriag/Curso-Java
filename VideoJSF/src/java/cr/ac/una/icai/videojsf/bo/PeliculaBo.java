@@ -13,19 +13,10 @@ import cr.ac.una.icai.videojsf.dao.PeliculaAD;
  * @author Estudiante
  */
 public class PeliculaBo {
-    
     private PeliculaAD peliDao;
 
     public PeliculaBo() {
-        peliDao=new PeliculaAD();
-    }
-
-    public PeliculaAD getPeliDao() {
-        return peliDao;
-    }
-
-    public void setPeliDao(PeliculaAD peliDao) {
-        this.peliDao = peliDao;
+        peliDao = new PeliculaAD();
     }
     
     public Integer insertar(Pelicula peli){

@@ -8,4 +8,16 @@
         <managed-bean-class>cr.ac.una.icai.videojsf.bean.PeliculaBean</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>clienteBean</managed-bean-name>
+        <managed-bean-class>cr.ac.una.icai.videojsf.bean.ClienteBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>actorBean</managed-bean-name>
+        <managed-bean-class>cr.ac.una.icai.videojsf.bean.ActorBean</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
 </faces-config>

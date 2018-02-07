@@ -19,17 +19,67 @@ import javax.faces.model.SelectItem;
  */
 public class PeliculaBean {
 
-    private Pelicula laPelicula;
-    private PeliculaBo peliBo;
-    private FacesMessage msj;
-
     /**
      * Creates a new instance of PeliculaBean
      */
+    
+    private Pelicula laPelicula;
+    private PeliculaBo peliBo;
+    private FacesMessage msj;
+    
     public PeliculaBean() {
         laPelicula = new Pelicula();
-        peliBo=new PeliculaBo();
-        msj=new FacesMessage();
+        peliBo = new PeliculaBo();
+        msj = new FacesMessage();
+    }
+    
+    
+    public String agregar(){
+        if(validarDatos()){
+            int i = peliBo.insertar(laPelicula);
+            
+            this.msj = new FacesMessage();
+            switch(i){
+                case 0:
+                    this.msj.setSummary("Pelicula agregada correctamente.");
+                    laPelicula=  new Pelicula();
+                    break;
+                case 1:
+                    this.msj.setSummary("No se pudo conectar a la BD.");
+                    break;
+                case 2:
+                    this.msj.setSummary("Error insertando la pelicula.");
+                    break;
+                case 3:
+                    this.msj.setSummary("Ya existe una pelicula con ese codigo.");
+                    break;
+            }
+            
+            FacesContext.getCurrentInstance().addMessage(null, msj);
+        }
+        return "";
+    }
+    
+    public boolean validarDatos(){
+        //Validar que datos correspondan
+        return true;
+    }
+    
+    public List<SelectItem> llenaTipo(){
+        List<SelectItem> lista = new ArrayList<>();
+        lista.add(new SelectItem(0, "--Seleccione--"));
+        lista.add(new SelectItem(1, "Acción"));
+        lista.add(new SelectItem(2, "Comedia"));
+        lista.add(new SelectItem(3, "Suspenso"));
+        lista.add(new SelectItem(4, "Romantica"));
+        return lista;
+    }
+    
+    public List<SelectItem> llenaTaquillera(){
+        List<SelectItem> lista = new ArrayList<>();
+        lista.add(new SelectItem(1, "SI"));
+        lista.add(new SelectItem(2, "NO"));
+        return lista;
     }
 
     public Pelicula getLaPelicula() {
@@ -47,58 +97,7 @@ public class PeliculaBean {
     public void setPeliBo(PeliculaBo peliBo) {
         this.peliBo = peliBo;
     }
-
-    public FacesMessage getMsj() {
-        return msj;
-    }
-
-    public void setMsj(FacesMessage msj) {
-        this.msj = msj;
-    }
     
     
-    public List<SelectItem> llenaTipo() {
-        List<SelectItem> lista = new ArrayList();
-        lista.add(new SelectItem(0, "---Seleccione----"));
-        lista.add(new SelectItem(1, "Accion"));
-        lista.add(new SelectItem(2, "Comedia"));
-        lista.add(new SelectItem(3, "Suspenso"));
-        lista.add(new SelectItem(4, "Romanticda"));
-        return lista;
-
-    }
-
-    public List<SelectItem> llenaTaquillera() {
-        List<SelectItem> lista =new ArrayList<>();
-        lista.add(new SelectItem(1,"Si"));
-        lista.add(new SelectItem(2,"No"));
-        return lista;
-    }
     
-    public String agregar(){
-        if(validaDatos()){
-           int i= peliBo.insertar(laPelicula);
-           switch(i){
-               case 0:
-                   this.msj.setSummary("Pelicula agregada correctamente");
-                   break;
-               case 1:
-                   this.msj.setSummary("No se pudo conectar a la BD");
-                   break;
-               case 2:
-                   this.msj.setSummary("Error insertando la pelicula");
-                   break;
-                case 3:
-                   this.msj.setSummary("Ya existe");
-                   break;
-           }
-           
-           FacesContext.getCurrentInstance().addMessage(null, msj);
-        }
-    return "";
-    }
-
-    private boolean validaDatos() {
-        return true;
-    }
 }
