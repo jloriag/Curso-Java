@@ -113,7 +113,8 @@ public class PeliculaAD {
                 while(resultado.next()){
                     peli.setCodigo(resultado.getInt(1));
                     peli.setNombre(resultado.getString("nombre"));
-                    peli.setTipo(resultado.getInt(3));
+                    peli.setProductora(resultado.getString(3));
+                    peli.setTipo(resultado.getInt(4));
                     peli.setTaquillera(resultado.getInt("taquillera"));
                 }
                 this.con.desconectarse();
@@ -141,7 +142,8 @@ public class PeliculaAD {
                     Pelicula peli = new Pelicula();
                     peli.setCodigo(resultado.getInt(1));
                     peli.setNombre(resultado.getString("nombre"));
-                    peli.setTipo(resultado.getInt(3));
+                    peli.setProductora(resultado.getString(3));
+                    peli.setTipo(resultado.getInt(4));
                     peli.setTaquillera(resultado.getInt("taquillera"));
                     lista.add(peli);
                 }

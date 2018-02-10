@@ -7,6 +7,7 @@ package cr.ac.una.icai.videojsf.bo;
 
 import cr.ac.una.icai.videojsf.clases.Pelicula;
 import cr.ac.una.icai.videojsf.dao.PeliculaAD;
+import java.util.List;
 
 /**
  *
@@ -22,5 +23,27 @@ public class PeliculaBo {
     public Integer insertar(Pelicula peli){
         return this.peliDao.insertar(peli);
     }
+    
+    public List<Pelicula> consultaTodos(){
+        
+        return peliDao.consultaTodos();
+    }
+
+    public int modificar(Pelicula laPelicula) {
+        return peliDao.modificar(laPelicula);
+    }
+
+    public int eliminar(Pelicula laPelicula) {
+        return peliDao.eliminar(laPelicula);
+    }
+
+    public Pelicula consXcodigo(Integer codigo) {
+        return peliDao.consultaXCodigo(codigo);
+    }
+
+    public List<Pelicula> consXnombre(String nombre) {
+        return peliDao.consultaXNombre(nombre);
+    }
+    
     
 }
