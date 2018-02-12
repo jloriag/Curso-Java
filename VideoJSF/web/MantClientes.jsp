@@ -21,7 +21,7 @@
                     <tr>
                         <td><h:outputText value="Cedula"/></td>
                         <td>
-                            <h:inputText id="txtCedula" value="#{clienteBean.elCliente.cedula}"/>
+                            <h:inputText id="txtCedula" disabled="#{!clienteBean.agregando}" value="#{clienteBean.elCliente.cedula}"/>
                             <h:message for="txtCedula" style="color:red;"/>
                          </td>
                     </tr>
@@ -57,7 +57,64 @@
                     </tr>
                 </table>
                 <h:commandButton id="btnAgregar" value="Agregar" action="#{clienteBean.agregar()}"/>
+                <h:commandButton rendered="#{!clienteBean.agregando}" id="btnModificar" value="Modificar" action="#{clienteBean.modificar()}"/>
+                <h:commandButton id="btnLimpiar" value="Limpiar" action="#{clienteBean.limpiar()}"/>
+                <h:commandButton id="btnRegresar" value="Regresar" action="#{clienteBean.regresar()}"/>
+                <h:commandButton id="btnConsXCodigo" value="Consulta X Codigo" action="#{clienteBean.consXCedula()}"/>
+                <h:commandButton id="btnConsXNombre" value="Consulta X Nombre" action="#{clienteBean.consXNombre()}"/>
                 <h:messages globalOnly="true" style="color:green;"/>
+                <h:dataTable id="tableClientes" styleClass="table" value="#{clienteBean.listaClientes}" binding="#{clienteBean.tableClientes}" var="client" border="1">
+                    <h:column id="col1">
+                        <f:facet name="header">
+                            <h:outputText value="Cedula" />
+                        </f:facet>
+                        <h:outputText value="#{client.cedula}"/>
+                    </h:column>
+                    <h:column id="col2">
+                        <f:facet name="header">
+                            <h:outputText value="Nombre" />
+                        </f:facet>
+                        <h:outputText value="#{client.nombre}"/>
+                    </h:column>
+                    <h:column id="col3">
+                        <f:facet name="header">
+                            <h:outputText value="Telefono" />
+                        </f:facet>
+                        <h:outputText value="#{client.telefono}"/>
+                    </h:column>
+                    <h:column id="col4">
+                        <f:facet name="header">
+                            <h:outputText value="Direccion" />
+                        </f:facet>
+                        <h:outputText value="#{client.direccion}"/>
+                    </h:column>
+                    
+                    <h:column id="col5">
+                        <f:facet name="header">
+                            <h:outputText value="Monto Pagado" />
+                        </f:facet>
+                        <h:outputText value="#{client.montoPagado}"/>
+                    </h:column>
+                    
+               <h:column id="col6">
+                        <f:facet name="header">
+                            <h:outputText value="Seleccionar"/>
+                        </f:facet>
+                   <h:commandLink action="#{clienteBean.seleccionar()}">                                
+                            <h:graphicImage url="img/modificar.png"></h:graphicImage>
+                        </h:commandLink>
+                    </h:column>
+                    
+                    
+                    <h:column id="col7">
+                        <f:facet name="header">
+                            <h:outputText value="Eliminar"/>
+                        </f:facet>
+                        <h:commandLink onclick="return confirm('Esta seguro de eliminar el cliente?')" action="#{clienteBean.eliminar()}">                                
+                            <h:graphicImage url="img/eliminar.gif"></h:graphicImage>
+                        </h:commandLink>
+                    </h:column>
+                </h:dataTable>
             </h:form>
         </body>
     </html>

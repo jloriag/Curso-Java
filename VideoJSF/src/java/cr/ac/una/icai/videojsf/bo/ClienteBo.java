@@ -7,6 +7,7 @@ package cr.ac.una.icai.videojsf.bo;
 
 import cr.ac.una.icai.videojsf.clases.Cliente;
 import cr.ac.una.icai.videojsf.dao.ClienteAD;
+import java.util.List;
 
 /**
  *
@@ -21,5 +22,25 @@ public class ClienteBo {
     
     public Integer insertar(Cliente cliente){
         return this.clienteDao.insertar(cliente);
+    }
+    
+    public Integer modificar(Cliente cliente){
+        return this.clienteDao.modificar(cliente);
+    }
+
+    public List<Cliente> consultaTodos() {
+        return clienteDao.consultaTodos();
+    }
+
+    public int eliminar(Cliente elCliente) {
+        return clienteDao.eliminar(elCliente);
+    }
+    
+    public Cliente consXcedula(Integer cedula){
+        return clienteDao.consultaXCedula(cedula);
+    }
+    
+    public List<Cliente> consXnombre(String nombre){
+        return clienteDao.consultaXNombre(nombre);
     }
 }
