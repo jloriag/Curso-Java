@@ -137,7 +137,7 @@ public class ActorBean {
     }
     
     public String consXNombre() {
-        if (elActor.getCodigoActor()== null) {
+        if (elActor.getNombre()== null) {
             msj = new FacesMessage();
             msj.setSummary("Ingrese un nombre a buscar");
             FacesContext.getCurrentInstance().addMessage("form1:txtNombre", msj);
