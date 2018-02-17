@@ -16,7 +16,7 @@ public class Alquiler {
     Integer codigo;
     Integer cedula;
     Date fecha;
-    Double monto;
+    Float monto;
     Integer dias;
 
     public Integer getCodigo() {
@@ -43,11 +43,11 @@ public class Alquiler {
         this.fecha = fecha;
     }
 
-    public Double getMonto() {
+    public Float getMonto() {
         return monto;
     }
 
-    public void setMonto(Double monto) {
+    public void setMonto(Float monto) {
         this.monto = monto;
     }
 
