@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+      "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+          
+<hibernate-mapping package="cr.ac.una.icai.universidad.clases">
+    <class name="Estudiante" table="estudiante">
+        <id name="cedula" column="cedulaprofe" type="java.lang.Integer" length="11">
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" column="nombre" type="java.lang.String" length="45" />
+        <property name="anosexperiencia" column="anosexperiencia" type="java.lang.Integer" length="45" />
+        <property name="correo" column="correo" type="java.lang.String" length="45" />
+    </class>
+</hibernate-mapping>
