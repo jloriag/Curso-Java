@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/02/2018 12:09:47 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.una.una.icai.clases.Estudiante" table="estudiante" catalog="universidad" optimistic-lock="version">
+        <id name="cedula" type="int">
+            <column name="cedula" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="45" />
+        </property>
+        <property name="telefono" type="java.lang.Integer">
+            <column name="telefono" />
+        </property>
+        <set name="matriculas" table="matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="cedula" not-null="true" />
+            </key>
+            <one-to-many class="cr.una.una.icai.clases.Matricula" />
+        </set>
+    </class>
+</hibernate-mapping>
