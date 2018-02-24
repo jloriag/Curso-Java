@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2018 11:29:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.icai.videojsf.clases.Alquiler" table="alquiler" catalog="video" optimistic-lock="version">
+        <composite-id name="id" class="cr.ac.una.icai.videojsf.clases.AlquilerId">
+            <key-property name="cedula" type="int">
+                <column name="cedula" />
+            </key-property>
+            <key-property name="fecha" type="timestamp">
+                <column name="fecha" length="19" />
+            </key-property>
+            <key-property name="codigo" type="int">
+                <column name="codigo" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="cliente" class="cr.ac.una.icai.videojsf.clases.Cliente" update="false" insert="false" fetch="select">
+            <column name="cedula" not-null="true" />
+        </many-to-one>
+        <many-to-one name="pelicula" class="cr.ac.una.icai.videojsf.clases.Pelicula" update="false" insert="false" fetch="select">
+            <column name="codigo" not-null="true" />
+        </many-to-one>
+        <property name="monto" type="big_decimal">
+            <column name="monto" precision="7" />
+        </property>
+        <property name="dias" type="java.lang.Integer">
+            <column name="dias" />
+        </property>
+    </class>
+</hibernate-mapping>

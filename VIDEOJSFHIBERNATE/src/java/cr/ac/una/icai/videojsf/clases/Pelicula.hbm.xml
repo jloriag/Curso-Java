@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2018 11:29:38 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.icai.videojsf.clases.Pelicula" table="pelicula" catalog="video" optimistic-lock="version">
+        <id name="codigo" type="int">
+            <column name="codigo" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="productora" type="string">
+            <column name="productora" length="45" />
+        </property>
+        <property name="tipo" type="java.lang.Integer">
+            <column name="tipo" />
+        </property>
+        <property name="taquillera" type="java.lang.Integer">
+            <column name="taquillera" />
+        </property>
+        <set name="actors" table="pelicula_actor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo" not-null="true" />
+            </key>
+            <many-to-many entity-name="cr.ac.una.icai.videojsf.clases.Actor">
+                <column name="codigoActor" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="alquilers" table="alquiler" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codigo" not-null="true" />
+            </key>
+            <one-to-many class="cr.ac.una.icai.videojsf.clases.Alquiler" />
+        </set>
+    </class>
+</hibernate-mapping>
