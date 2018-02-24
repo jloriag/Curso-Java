@@ -17,6 +17,29 @@
         </head>
         <body>
             <h1><h:outputText value="JavaServer Faces"/></h1>
+            <h:form>
+                <table border="1">
+                    <tbody>
+                        <tr>
+                            <td>C&eacute;dula</td>
+                            <td><h:inputText id="txtCedula" value="#{profesorbean.elprofe.cedulaprofe}"/></td>
+                        </tr>
+                        <tr>
+                            <td>Nombre</td>
+                            <td><h:inputText id="txtNombre" value="#{profesorbean.elprofe.nombre}"/></td>
+                        </tr>
+                        <tr>
+                            <td>A&ntilde;os de Experiencia</td>
+                            <td><h:inputText id="txtAnnos" value="#{profesorbean.elprofe.annosexperiencia}"/></td>
+                        </tr>
+                        <tr>
+                            <td>Correo</td>
+                            <td><h:inputText id="txtCorreo" value="#{profesorbean.elprofe.correo}"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                            <h:commandButton id="btnAgregar" value="Agregar" action="#{profesorbean.agregar()}"/>
+            </h:form>
         </body>
     </html>
 </f:view>

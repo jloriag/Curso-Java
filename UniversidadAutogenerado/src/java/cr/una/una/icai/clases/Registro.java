@@ -1,6 +1,9 @@
 package cr.una.una.icai.clases;
 // Generated 17/02/2018 12:09:47 PM by Hibernate Tools 4.3.1
 
+import java.util.Objects;
+
+
 
 
 /**
@@ -46,6 +49,31 @@ public class Registro  implements java.io.Serializable {
     
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 67 * hash + Objects.hashCode(this.id);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Registro other = (Registro) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        return true;
     }
 
 

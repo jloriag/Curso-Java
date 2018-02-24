@@ -68,6 +68,31 @@ public class Profesor  implements java.io.Serializable {
         this.cursos = cursos;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + this.cedulaprofe;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Profesor other = (Profesor) obj;
+        if (this.cedulaprofe != other.cedulaprofe) {
+            return false;
+        }
+        return true;
+    }
+
 
 
 
