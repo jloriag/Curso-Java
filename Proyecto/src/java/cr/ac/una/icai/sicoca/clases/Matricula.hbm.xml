@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2018 12:13:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.icai.sicoca.clases.Matricula" table="matricula" catalog="sicoca" optimistic-lock="version">
+        <composite-id name="id" class="cr.ac.una.icai.sicoca.clases.MatriculaId">
+            <key-property name="idCurso" type="int">
+                <column name="idCurso" />
+            </key-property>
+            <key-property name="cedula" type="int">
+                <column name="cedula" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="curso" class="cr.ac.una.icai.sicoca.clases.Curso" update="false" insert="false" fetch="select">
+            <column name="idCurso" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empleado" class="cr.ac.una.icai.sicoca.clases.Empleado" update="false" insert="false" fetch="select">
+            <column name="cedula" not-null="true" />
+        </many-to-one>
+        <property name="nota" type="big_decimal">
+            <column name="nota" precision="5" />
+        </property>
+    </class>
+</hibernate-mapping>

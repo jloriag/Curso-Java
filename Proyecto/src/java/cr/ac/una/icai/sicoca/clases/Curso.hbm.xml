@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2018 12:13:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.icai.sicoca.clases.Curso" table="curso" catalog="sicoca" optimistic-lock="version">
+        <id name="idCurso" type="int">
+            <column name="idCurso" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="instructor" class="cr.ac.una.icai.sicoca.clases.Instructor" fetch="select">
+            <column name="idInstructor" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="horasDuracion" type="java.lang.Integer">
+            <column name="horasDuracion" />
+        </property>
+        <property name="fechaInicio" type="date">
+            <column name="fechaInicio" length="10" />
+        </property>
+        <property name="fechaFinalizacion" type="date">
+            <column name="fechaFinalizacion" length="10" />
+        </property>
+        <property name="precio" type="big_decimal">
+            <column name="precio" precision="7" />
+        </property>
+        <set name="matriculas" table="matricula" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idCurso" not-null="true" />
+            </key>
+            <one-to-many class="cr.ac.una.icai.sicoca.clases.Matricula" />
+        </set>
+    </class>
+</hibernate-mapping>

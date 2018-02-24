@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-feb-2018 12:13:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="cr.ac.una.icai.sicoca.clases.Area" table="area" catalog="sicoca" optimistic-lock="version">
+        <id name="idArea" type="int">
+            <column name="idArea" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" />
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="ubicacion" length="45" />
+        </property>
+        <set name="empleados" table="empleado" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idArea" />
+            </key>
+            <one-to-many class="cr.ac.una.icai.sicoca.clases.Empleado" />
+        </set>
+    </class>
+</hibernate-mapping>
